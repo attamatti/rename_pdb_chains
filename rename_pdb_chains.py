@@ -17,6 +17,9 @@ for line in pdbdata:
         if line[0:4] =='ATOM':
             chain = line[21]
             print(line.replace('\n',''))
-            newline = '{0}{1}{2}'.format(line[0:21],chain_names[chain],line[22:])
-            print(newline)
-            output.write(newline)
+            try:
+                newline = '{0}{1}{2}'.format(line[0:21],chain_names[chain],line[22:])
+                print(newline)
+                output.write(newline)
+            except:
+                output.write(line)
